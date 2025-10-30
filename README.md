@@ -36,7 +36,7 @@ Open `notebooks/01_data_exploration.ipynb`
 - `src/` - Python modules for reusable code
 - `results/` - Generated plots and metrics
 - `download_data.py` - Dataset download script
-```
+
 
 ## **Check .gitignore:**
 Ensure these lines are in your '.gitignore' file:
@@ -55,3 +55,4 @@ results/
 __pycache__/
 *.pyc
 .env
+```
