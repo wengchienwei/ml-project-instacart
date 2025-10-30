@@ -18,8 +18,10 @@ pip install -r requirements.txt
 ```
 
 3. **Download dataset:**
-```bash
-python download_data.py
+In any notebook, start with:
+```python
+import kagglehub
+data_path = kagglehub.dataset_download("psparks/instacart-market-basket-analysis")
 ```
 
 4. **Start exploring:**
