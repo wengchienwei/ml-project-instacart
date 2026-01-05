@@ -1,7 +1,8 @@
 import pandas as pd
 
-# Hardcode your cached path
-DATA_PATH = r"C:\Users\CHIENWEI\.cache\kagglehub\datasets\psparks\instacart-market-basket-analysis\versions\1"
+# Get cached path dynamically
+import kagglehub
+DATA_PATH = kagglehub.dataset_download("psparks/instacart-market-basket-analysis")
 
 def load_orders():
     return pd.read_csv(f"{DATA_PATH}/orders.csv")
