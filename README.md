@@ -37,7 +37,6 @@ Open `notebooks/01_data_exploration.ipynb`
 - `notebooks/` - Jupyter notebooks for analysis
 - `src/` - Python modules for reusable code
 - `results/` - Generated plots and metrics
-- `download_data.py` - Dataset download script
 
 
 ## **Check .gitignore:**
