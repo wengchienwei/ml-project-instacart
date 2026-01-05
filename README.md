@@ -17,12 +17,9 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
-3. **Download dataset:**
-In any notebook, start with:
-```python
-import kagglehub
-data_path = kagglehub.dataset_download("psparks/instacart-market-basket-analysis")
-```
+3. Run notebook: Data downloads automatically via `data_utils.py`
+   - Open `notebooks/01_data_exploration.ipynb`
+   - Run cells - first run downloads data, subsequent runs use cache
 
 4. **Start exploring:**
 Open `notebooks/01_data_exploration.ipynb`
@@ -37,7 +34,6 @@ Open `notebooks/01_data_exploration.ipynb`
 - `notebooks/` - Jupyter notebooks for analysis
 - `src/` - Python modules for reusable code
 - `results/` - Generated plots and metrics
-- `download_data.py` - Dataset download script
 
 
 ## **Check .gitignore:**
