@@ -78,15 +78,15 @@ def create_user_profile(user_id, purchase_counts, item_profile):
     return user_profile
 
 
-def get_cbf_recommendations(user_id, purchase_counts, item_profile, n=10):
+def get_cbf_recommendations(user_id, purchase_counts, item_profile, user_purchase_cache, n=10):
     """Content-based recommendations using item features"""
     user_profile = create_user_profile(user_id, purchase_counts, item_profile)
     
     if user_profile is None:
         return []
     
-    user_products = purchase_counts[purchase_counts['user_id'] == user_id]['product_id'].values
-    
+    user_products = user_purchase_cache.get(user_id, set())
+
     feature_matrix = item_profile.drop('product_id', axis=1).values
     similarities = cosine_similarity(user_profile, feature_matrix)[0]
     
@@ -118,7 +118,7 @@ def get_hybrid_recommendations(cf_model, user_id, all_products, user_purchase_ca
                                      user_purchase_cache, n=400, exclude_purchased=True)
     
     # Get CBF recommendations
-    cbf_recs = get_cbf_recommendations(user_id, purchase_counts, item_profile, n=400)
+    cbf_recs = get_cbf_recommendations(user_id, purchase_counts, item_profile, user_purchase_cache, n=400)
     
     # Normalize CF scores
     if len(cf_recs) > 0:
