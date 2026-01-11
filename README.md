@@ -163,7 +163,7 @@ pip install -r requirements.txt
 
 ## Technical Details
 
-- **Clustering:** K-means with PCA (80% variance), Silhouette score: 0.023
+- **Clustering:** K-means with PCA (80% variance), Silhouette score: 0.022
 - **CF:** SVD matrix factorization, log-transformed purchase frequencies
 - **CBF:** Binary feature vectors on product features (department, aisle)
 - **Evaluation:** Stratified sampling (2000 users), temporal validation
