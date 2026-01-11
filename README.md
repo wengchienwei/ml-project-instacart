@@ -1,4 +1,4 @@
-# Hybrid Clustering and Recommendation System for E-commerce
+# Hybrid Clustering and Recommendation System for E-commerce Customer Personalization
 
 MSc Data Sciences and Business Analytics - CentraleSupélec, Université Paris-Saclay
 
