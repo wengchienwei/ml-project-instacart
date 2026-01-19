@@ -2,6 +2,7 @@
 data/raw/
 data/processed/*.parquet
 data/processed/*.pkl
+**/papers
 
 # Results outputs
 results/metrics/

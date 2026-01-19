@@ -1,0 +1,47 @@
+# Local VS Studio Code
+
+# Clone repo
+git clone https://github.com/wengchienwei/ml-project-instacart.git ml-project-instacart
+
+# Create virtual venv
+cd ml-project-instacart
+
+python -m venv venv
+
+venv\Scripts\activate
+
+# Install the kernel
+python -m ipykernel install --user --name ml-project-instacart --display-name "ML Project Instacart" --force
+
+# Install packages
+pip install -r requirements.txt
+
+# Work with notebooks in virtual environment, during (venv)
+jupyter lab
+
+
+# Colab
+
+# Install packages
+!pip install -r https://raw.githubusercontent.com/wengchienwei/ml-project-instacart/refs/heads/main/requirements.txt?token=GHSAT0AAAAAADNZDHYM6NNAFJ6HWR56GUPU2IDH2IQ
+
+# Import packages
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import kagglehub
+
+# Clone data access
+data_path = kagglehub.dataset_download("psparks/instacart-market-basket-analysis")
+print(f"Data path: {data_path}")
+
+# Load and explore data
+import os
+print("Available files:")
+for file in os.listdir(data_path):
+    print(f"- {file}")
+
+# Load a sample dataset
+orders = pd.read_csv(f"{data_path}/orders.csv")
+print(f"Orders shape: {orders.shape}")
+print(orders.head())

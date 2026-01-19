@@ -1,0 +1,27 @@
+# Colab
+
+# Run these commands on cells
+
+# Go to github project repository: https://github.com/wengchienwei/ml-project-instacart/blob/main/requirements.txt
+# Copy and paste all required packages to google colab
+
+# Import packages
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import kagglehub
+
+# Clone data access
+data_path = kagglehub.dataset_download("psparks/instacart-market-basket-analysis")
+print(f"Data path: {data_path}")
+
+# Load and explore data
+import os
+print("Available files:")
+for file in os.listdir(data_path):
+    print(f"- {file}")
+
+# Load a sample dataset
+orders = pd.read_csv(f"{data_path}/orders.csv")
+print(f"Orders shape: {orders.shape}")
+print(orders.head())

@@ -1,0 +1,22 @@
+# Local VS Studio Code
+
+# Run these commands in the terminal window in VS Code
+
+# This command create a folder "ml-project-instacart" and clone the repository inside it
+git clone https://github.com/wengchienwei/ml-project-instacart.git ml-project-instacart
+
+# Create virtual environment to avoid package version conlifcts
+cd ml-project-instacart
+
+python -m venv venv
+
+venv\Scripts\activate
+
+# Install the kernel for the notebook in virtual environment
+python -m ipykernel install --user --name ml-project-instacart --display-name "ML Project Instacart" --force
+
+# Install packages
+pip install -r requirements.txt
+
+# Work with notebooks in virtual environment, you should see (venv) in the terminal window
+jupyter lab
