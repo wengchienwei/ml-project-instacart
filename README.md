@@ -1,4 +1,4 @@
-# Hybrid Clustering and Recommendation System for E-commerce
+# Hybrid Clustering and Recommendation System for E-commerce Customer Personalization
 
 MSc Data Sciences and Business Analytics - CentraleSupélec, Université Paris-Saclay
 
@@ -35,25 +35,99 @@ Customer segmentation-based recommendation system for e-commerce using Instacart
 
 ## Quick Start
 
-### 1. Setup Environment
+### Prerequisites
+- Python 3.11+
+- Anaconda (recommended) or Python with pip
+- See `requirements.txt` for full dependencies
+
+---
+
+<details>
+<summary><b>Option 1: Using Anaconda (Recommended) - Click to expand</b></summary>
+
+### Step 1: Create Environment
 ```bash
-# Create conda environment
+# Open Anaconda Prompt (Windows) or Terminal (Mac/Linux)
 conda create -n instacart python=3.11
 conda activate instacart
+```
 
-# Install dependencies
+### Step 2: Install Dependencies
+```bash
+# Install scikit-surprise via conda (required)
 conda install -c conda-forge scikit-surprise
+
+# Install remaining packages
 pip install -r requirements.txt
 ```
 
-### 2. Run Notebooks
+### Step 3: Launch Jupyter
 ```bash
+# Start Jupyter Lab
 jupyter lab
+
+# OR if using VS Code:
+# 1. Open project folder in VS Code
+# 2. Select kernel: "Python 3.11 (instacart)"
+# 3. Open notebook and run
 ```
 
-Execute notebooks sequentially: `01 → 02 → 03 → 04`
+### Step 4: Run Notebooks Sequentially
+- Execute `01_phase0_data_preparation.ipynb` first (data downloads automatically)
+- Then run `02 → 03 → 04` in order
+- **Note:** Notebook 04 requires outputs from notebooks 01-03
 
-**Note:** Data downloads automatically via `kagglehub` on first run.
+</details>
+
+---
+
+<details>
+<summary><b>Option 2: Using pip (Alternative) - Click to expand</b></summary>
+
+If you don't have Anaconda:
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate (Windows)
+venv\Scripts\activate
+
+# Activate (Mac/Linux)
+source venv/bin/activate
+
+# Install dependencies (Note: scikit-surprise may require C++ compiler)
+pip install -r requirements.txt
+```
+
+**Note:** `scikit-surprise` installation via pip may fail on Windows without Visual Studio Build Tools. Anaconda method is strongly recommended.
+
+</details>
+
+---
+
+### Expected Runtime
+- **Notebook 01:** ~5-10 minutes (includes data download)
+- **Notebook 02:** ~10-20 minutes
+- **Notebook 03:** ~60 minutes
+- **Notebook 04:** ~60-90 minutes (full evaluation)
+
+**Total:** ~3 hours for complete execution
+
+---
+
+<details>
+<summary><b>Troubleshooting - Click to expand</b></summary>
+
+**Issue:** `ModuleNotFoundError: No module named 'surprise'`
+- **Solution:** Install via conda: `conda install -c conda-forge scikit-surprise`
+
+**Issue:** Notebook 04 fails with "FileNotFoundError"
+- **Solution:** Run notebooks 01-03 first to generate processed data files
+
+**Issue:** Data download fails
+- **Solution:** Check internet connection, Kaggle API credentials may be required
+
+</details>
 
 ---
 
@@ -89,18 +163,10 @@ Execute notebooks sequentially: `01 → 02 → 03 → 04`
 
 ## Technical Details
 
-- **Clustering:** K-means with PCA (80% variance), Silhouette score: 0.023
+- **Clustering:** K-means with PCA (80% variance), Silhouette score: 0.022
 - **CF:** SVD matrix factorization, log-transformed purchase frequencies
 - **CBF:** Binary feature vectors on product features (department, aisle)
 - **Evaluation:** Stratified sampling (2000 users), temporal validation
-
----
-
-## Requirements
-
-- Python 3.11+
-- scikit-surprise (requires conda)
-- See `requirements.txt` for full dependencies
 
 ---
 
